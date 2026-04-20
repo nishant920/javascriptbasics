@@ -3,7 +3,7 @@ let tasks = [];
 
 function addTask() {
     const input = document.getElementById("taskInput");
-    const value = input.value;
+    const value = input.value.trim();
 
     if (value === "") return;
 
@@ -27,11 +27,20 @@ function renderTask() {
         const btn = document.createElement("button");
         btn.innerText = "Delete";
 
-        btn.onclick = function () {
+        btn.onclick = function (e) {
+            e.stopPropagation();
             tasks.splice(index, 1); 
             renderTask();
         };
-
+        //since btn is also inside li, when you click the button, you are also clicking inside the li
+        //That movement from child element to parent element is called event bubbling. we use e.stopPropagation() to not inherit the li on click to btn 
+        li.onclick = function(){
+            tasks[index].completed = !tasks[index].completed;
+            renderTask();
+        };
+        if (task.completed) {
+            li.style.textDecoration = "line-through";
+        }
         li.appendChild(btn);
         list.appendChild(li);
     });
