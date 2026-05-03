@@ -27,11 +27,15 @@ function renderTask() {
         const btn = document.createElement("button");
         btn.innerText = "Delete";
 
-        btn.onclick = function (e) {
-            e.stopPropagation();
-            tasks.splice(index, 1); 
+        btn.addEventListener("click", function(event) {
+            event.stopPropagation();
+            tasks.splice(index, 1);
             renderTask();
-        };
+        });
+
+        btn.addEventListener("click", function(event) {
+            console.log("Deleted : ", task.title);
+        })
         //since btn is also inside li, when you click the button, you are also clicking inside the li
         //That movement from child element to parent element is called event bubbling. we use e.stopPropagation() to not inherit the li on click to btn 
         li.onclick = function(){
