@@ -1,5 +1,5 @@
 
-let tasks = [];
+/* let tasks = [];
 
 function addTask() {
     const input = document.getElementById("taskInput");
@@ -50,7 +50,7 @@ function renderTask() {
     });
 }
 
-
+*/
 
 
 
@@ -89,26 +89,42 @@ function renderTask() {
 //console.log(reverseString("helloo     sus"))
 
 //Objects
-//  let task = {
-//      title: "study",
-//      completed: false,
-//      userAction: function(){
-//          return "User has picked up the task" + " : " + task.topic;
-//      }
-//  };
-//  task.topic = "DSA"
-//  console.log(task.title);
-// 
-//  console.log(task);
-//  task.status = "hold";
-//  for(let key in task){
-//    console.log(key, task[key]);
-//  }
-//
-//  console.log("FUNCTION");
-//
-//  console.log(task.userAction())
-//
+/*
+ let task = {
+      title: "study",
+      completed: false,
+      userAction: function(){
+          return "User has picked up the task" + " : " + this.title;
+      }
+  };
+
+  task.topic = "DSA"
+  console.log(task.title);
+
+  console.log(task);
+  task.status = "hold";
+  for(let key in task){
+    console.log(key, task[key]);
+  }
+  console.log("FUNCTION");
+  console.log(task.userAction())
+*/
+
+let tasks = {
+    title: "study",
+    completed: false,
+    action: function(){
+        return "I have picked up the task" + ":" + this.title;
+    },
+    newAction: () =>{
+        return "I'm not doing the task" + ":" + this.title;
+    } 
+}
+
+console.log(tasks.action());
+console.log(tasks.newAction());
+
+
 //this keyword for arrow function and normal funtion behaves diffrently 
 // while for normal funtion it mainly points to object that owns the methode but for 
 // but arrow don't have their own this they inherit it from surrending and lexical scope(window object)
