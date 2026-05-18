@@ -28,3 +28,14 @@ searchBox.addEventListener("input", function(){
   }
 });
 });
+
+/*Watchlist button*/
+
+const watchlistBtn = document.querySelectorAll(".watchlist-btn");
+
+watchlistBtn.forEach(function(button){
+    button.addEventListener("click", function(){
+        button.textContent = "✓ Added"
+        button.classList.add("added");
+    })
+})
