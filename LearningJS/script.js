@@ -1,5 +1,4 @@
-
-/* let tasks = [];
+ let tasks = [];
 
 function addTask() {
     const input = document.getElementById("taskInput");
@@ -50,7 +49,7 @@ function renderTask() {
     });
 }
 
-*/
+
 
 
 
@@ -108,7 +107,7 @@ function renderTask() {
   }
   console.log("FUNCTION");
   console.log(task.userAction())
-*/
+
 
 let tasks = {
     title: "study",

@@ -20,14 +20,29 @@ function renderTask() {
     const list = document.getElementById("taskList")
     list.innerHTML = "";
 
-    tasks.forEach(task => {
+    tasks.forEach((task, index) => {
         const li = document.createElement("li");
-        li.innerHTML = task.title;
-        list.appendChild(li);
+        li.innerText = task.title;
+        
 
         const btn = document.createElement("button");
         btn.innerText = "Delete";
+        btn.addEventListener("click", function(event){
+            event.stopPropagation();
+            tasks.splice(index, 1);
+            renderTask();
+        })
 
+        const btn2 =document.createElement("button");
+        btn2.innerText = "Completed";
+        btn2.addEventListener("click", function(event){
+            li.style.textDecoration = "lign-through";
+            renderTask();
+        })
 
+        list.appendChild(li);
+        li.appendChild(btn);
+        li.appendChild(btn2);
     });
+
 }

@@ -61,7 +61,7 @@ async function getData(){
     }
 }
 */
-
+/*
 function checkInventory(callback){
     setTimeout(() => {
         console.log('checking inventory :>> ');
@@ -120,3 +120,97 @@ function main(){
 }
 
 main();
+
+
+//clouser example 
+function outerFunction(){
+    let name = "nishant";
+
+    function innerFunction(){
+        console.log(name);
+    }
+
+    return innerFunction;
+}
+
+let fun = outerFunction();
+
+fun();
+
+function fn(){
+    let a = 2;
+    let b = 3;
+    let c = 3;
+    console.log(a+b+c); 
+}
+var once = function(fn){
+    let called = false;
+    return function(args){
+        if(called) return undefined;
+
+        called = true;
+        return fn(args);
+    }
+}
+*/
+
+const promise = new Promise((resolve, reject) => {
+    const sucess = true;
+    setTimeout(() => {
+        if(sucess){
+            resolve("Data recived");
+        }else {
+            reject("data failed")
+        }
+    }, 1000);
+})
+
+promise.then((result) => {
+    console.log(result);
+}).catch((error) => {
+    console.log(error);
+}).finally(()=>{
+    console.log("Done")
+})
+
+//diff between arrow and normal functio
+const tasks = {
+    task: "study",
+
+    Normalfunction: function() {
+        console.log(this.task);
+    },
+    arraowFunction: () => {
+        console.log(this.task);
+    }
+}
+
+const promise1 = new Promise((resolve, reject) => {
+    let sucess = true;
+    setTimeout(() => {
+        if(sucess){
+            resolve("Data Recived");
+        }else{
+            reject("Data rejected");
+        }
+    }, 2000);
+});
+
+promise.then((result) => {
+    console.log(result);
+}).catch((error) =>{
+    console.log(error);
+}).finally(()=>{
+    console.log("Done");
+})
+
+async function showData(){
+    try {
+        const result = await promise
+        console.log(result)
+    }catch(error){
+        console.log(error);
+    }finally{
+        console.log("done")
+    }
+}
