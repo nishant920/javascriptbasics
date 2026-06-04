@@ -22,7 +22,10 @@ function renderTask() {
 
     tasks.forEach((task, index) => {
         const li = document.createElement("li");
-        li.innerText = task.title;
+        const span = document.createElement("span");
+        span.innerText = task.title;
+        li.appendChild(span);
+        //li.innerHTML = `<span>${task.title}</span>`;
         
 
         const btn = document.createElement("button");
@@ -36,9 +39,13 @@ function renderTask() {
         const btn2 =document.createElement("button");
         btn2.innerText = "Completed";
         btn2.addEventListener("click", function(event){
-            li.style.textDecoration = "lign-through";
+            task.completed = true;
             renderTask();
         })
+
+        if(task.completed){
+            span.style.textDecoration = "line-through";
+        }
 
         list.appendChild(li);
         li.appendChild(btn);
