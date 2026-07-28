@@ -1,0 +1,1 @@
+const factBtn = document.getElementById("fact-btn"); 

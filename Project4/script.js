@@ -1,4 +1,4 @@
- const taskInput = document.getElementById("taskInput");
+ /* const taskInput = document.getElementById("taskInput");
  const addBtn = document.getElementById("addbtn");
  const taskList = document.getElementById("taskList");
 
@@ -133,3 +133,5 @@ loadTask();
         list.append(li);
     });
  }
+*/
+
